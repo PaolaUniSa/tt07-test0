@@ -16,9 +16,24 @@ module tt_um_LeakyIntegrateFireNeuron (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-  // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
+  wire rst = ! rst_n;
+
+LeakyIntegrateFireNeuron u_LeakyIntegrateFireNeuron(
+    .clk(clk),                          // Clock signal
+    .reset(rst),                        // Asynchronous reset, active high
+    .enable(ena),                      // Enable input for updating the neuron
+    .input_current(ui_in[2:0]),          // Input current (I_ext)
+    .threshold(uio_in),              // Firing threshold (V_thresh)
+    .decay(uio_in),                 // Decay value adjusted based on membrane potential sign
+    .refractory_period(uio_in),     // Refractory period in number of clock cycles, now 8 bits
+    .spike_out(uo_out[2:0])                // Output spike signal, renamed from 'fired'
+);
+
+  assign uo_out[2:0]=output_spikes;
+  assign uo_out[3]=end_writing;
+  assign uo_out[4]=data_written;
+  assign uo_out[7:5]=3'b000;
+    
+assign uio_oe = 8'b00000000; //used bidirectional pins as input
 
 endmodule
