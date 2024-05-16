@@ -41,14 +41,14 @@ pinout:
   uo[7]: ""
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "Data 0"
+  uio[1]: "Data 1"
+  uio[2]: "Data 2"
+  uio[3]: "Data 3"
+  uio[4]: "Data 4"
+  uio[5]: "Data 5"
+  uio[6]: "Data 6"
+  uio[7]: "Data 7"
 
 # Do not change!
 yaml_version: 6
