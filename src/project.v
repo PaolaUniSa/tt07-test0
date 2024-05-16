@@ -30,6 +30,7 @@ LeakyIntegrateFireNeuron u_LeakyIntegrateFireNeuron(
 );
 
     assign uo_out[7:3]=5'b00000;
+    assign uio_out=8'b00000000;
     
 assign uio_oe = 8'b00000000; //used bidirectional pins as input
 
