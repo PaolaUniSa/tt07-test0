@@ -29,10 +29,7 @@ LeakyIntegrateFireNeuron u_LeakyIntegrateFireNeuron(
     .spike_out(uo_out[2:0])                // Output spike signal, renamed from 'fired'
 );
 
-  assign uo_out[2:0]=output_spikes;
-  assign uo_out[3]=end_writing;
-  assign uo_out[4]=data_written;
-  assign uo_out[7:5]=3'b000;
+    assign uo_out[7:3]=5'b00000;
     
 assign uio_oe = 8'b00000000; //used bidirectional pins as input
 
