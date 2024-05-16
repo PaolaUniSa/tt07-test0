@@ -22,7 +22,7 @@ LeakyIntegrateFireNeuron u_LeakyIntegrateFireNeuron(
     .clk(clk),                          // Clock signal
     .reset(rst),                        // Asynchronous reset, active high
     .enable(ena),                      // Enable input for updating the neuron
-    .input_current((ui_in[2:0]),          // Input current (I_ext)
+    .input_current(ui_in[2:0]),          // Input current (I_ext)
     .threshold(uio_in),              // Firing threshold (V_thresh)
     .decay(uio_in),                 // Decay value adjusted based on membrane potential sign
     .refractory_period(uio_in),     // Refractory period in number of clock cycles, now 8 bits
